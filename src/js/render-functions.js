@@ -8,20 +8,26 @@ export function templateImage(image) {
       views,
       comments,
       downloads,
-    } = image;
+  } = image;
+  
+    const altText = image.tags.split(',')[0];
     return `
-    <li class="galery-item">
+    <li class="gallery-item">
+    <div class="wrapper"> 
+
      <a href="${largeImageURL}" class="gallery-link" >
     <img src="${webformatURL}"
       class="gallery-image"
-      alt="${tags}"
+      alt="${altText}"
     />
   </a>
-  <div class="details">
-  <p>${likes}</p>
-  <p>${views}</p>
-  <p>${comments}</p>
-  <p>${downloads}</p>
+  
+    </div>
+<div class="details">
+  <p class="detail-info">Likes<br><span class="detail-value"> ${likes}</span></p>
+  <p class="detail-info">Views<br><span class="detail-value"> ${views}</span> </p>
+  <p class="detail-info">Comments<br><span class="detail-value"> ${comments}</span> </p>
+  <p class="detail-info">Downloads<br><span class="detail-value"> ${downloads}</span> </p>
 
   </div>
     </li>
